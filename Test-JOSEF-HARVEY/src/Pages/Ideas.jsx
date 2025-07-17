@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import Banner from '../components/Banner';
-import Navcard from '../components/Navcard';
-import ListPost from '../components/ListPost';
-import Pagination from '../components/Pagination';
+import Banner from '../Components/Banner';
+import Navcard from '../Components/Navcard';
+import ListPost from '../Components/ListPost';
+import Pagination from '../Components/Pagination';
 
 export default function Ideas() {
     const initialParams = new URLSearchParams(window.location.search);

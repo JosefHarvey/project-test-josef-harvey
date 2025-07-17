@@ -4,6 +4,8 @@ import Navcard from '../Components/NavCard';
 import ListPost from '../Components/ListPost';
 import Pagination from '../Components/Pagination';
 
+const newImageDomain = 'https://suitmedia.static-assets.id'
+
 export default function Ideas() {
     const initialParams = new URLSearchParams(window.location.search);
     const [posts, setPosts] = useState([]);
@@ -35,7 +37,27 @@ export default function Ideas() {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
             const data = await response.json();
-            setPosts(data.data);
+            const processedPosts = data.data.map(post => {
+                const originImageUrl = post.small_image?.[0]?.url;
+
+                if(!originImageUrl){
+                    return post;
+                }
+                try{
+                    const UrlObject = new URL(originImageUrl)
+                    const path = UrlObject.pathname
+                    const newImageUrl = `${newImageDomain}${path}`
+                    
+                    return{
+                    ...post,
+                    small_image: [{ ...post.small_image[0], url: newImageUrl }]
+                    }
+                }catch (error) {
+                    console.error('url gambar tidak valid :', error)
+                    return post
+                }   
+            })
+            setPosts(processedPosts)
             setTotalItems(data.meta.total);
             } catch (error) {
                 console.error("Error fetching data:", error);

@@ -4,7 +4,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 export default function Navbar() {
     const [visible, setVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const logoUrl = "https://suitmedia.static.hrd.id/suitmedia/suitmedia-logo-white-s.png";
+    const logoUrl = "https://suitmedia.com/_ipx/w_100&f_webp&q_100/assets/img/site-logo.png ";
     const controlNavbar = () => {
         if (window.scrollY > lastScrollY && window.scrollY > 100) { 
             setVisible(false);
@@ -40,7 +40,7 @@ export default function Navbar() {
         >
             <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
                 <NavLink to="/">
-                    <img src={logoUrl} alt="Suitmedia Logo" className="h-8" />
+                    <img src={logoUrl} alt="Suitmedia Logo" className="h-8 brightness-0 invert" />
                 </NavLink>
 
                 <div className="hidden md:flex items-center space-x-8 text-sm">

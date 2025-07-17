@@ -1,5 +1,3 @@
-
-
 import Navbar from './Components/Navbar'
 import './index.css'
 import Ideas from './Pages/Ideas'
@@ -11,7 +9,6 @@ function App() {
         <main >
             <Ideas />
         </main>
-
     </div>
   )
 }

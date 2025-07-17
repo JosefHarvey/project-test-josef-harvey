@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Banner from '../Components/Banner';
-import Navcard from '../Components/Navcard';
+import Navcard from '../Components/NavCard';
 import ListPost from '../Components/ListPost';
 import Pagination from '../Components/Pagination';
 
